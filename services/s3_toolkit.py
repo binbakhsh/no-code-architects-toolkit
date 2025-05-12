@@ -33,7 +33,12 @@ def upload_to_s3(file_path, s3_url, access_key, secret_key, bucket_name, region)
         region_name=region
     )
     
-    client = session.client('s3', endpoint_url=s3_url)
+  client = session.client(
+    's3',
+    endpoint_url=s3_url,
+    verify=os.environ.get("S3_VERIFY_SSL", "true").lower() == "true"
+)
+
 
     try:
         # Upload the file to the specified S3 bucket
