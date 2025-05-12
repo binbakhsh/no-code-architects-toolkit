@@ -40,6 +40,7 @@ def upload_to_s3(file_path, s3_url, access_key, secret_key, bucket_name, region)
 )
 
 
+
     try:
         # Upload the file to the specified S3 bucket
         with open(file_path, 'rb') as data:
